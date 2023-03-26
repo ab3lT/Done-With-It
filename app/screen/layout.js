@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, Platform, StyleSheet, Text, Button, Image, TouchableWithoutFeedback, Alert } from 'react-native';
 
-export default function Layour() {
+export default function Layous() {
   return (
     <SafeAreaView style={styles.container}>
       

@@ -1,10 +1,16 @@
 import React from 'react';
-import { ImageBackground, StyleSheet} from 'react-native';
+import { ImageBackground, StyleSheet, View} from 'react-native';
 
 function WelcomeScreen(props) {
     return (
-        <ImageBackground 
-            source={require("../assets/image.png")}/>
+        <>
+        {/* <ImageBackground style={styles.backgroud}
+            source={require("../assets/bg-image.jpg")} /> */}
+            <View
+            style={{backgroundColor:"dodgerblue",flex:1}}
+            >
+
+            </View></>
     );
 }
 const styles = StyleSheet.create({
