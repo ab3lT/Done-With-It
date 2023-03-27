@@ -11,9 +11,8 @@ export default function App() {
           backgroundColor: "dodgerblue",
           width: 100,
           height: 100,
-          borderWidth: 10,
-          borderColor: "green",
-          borderRadius: 50,
+          shadowOpacity: 1,
+          elevation: 50,
         }}
       ></View>
     </View>
