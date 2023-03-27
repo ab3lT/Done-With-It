@@ -6,6 +6,16 @@ export default function App() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <MaterialCommunityIcons name="email" size={100} color="red" />
+      <View
+        style={{
+          backgroundColor: "dodgerblue",
+          width: 100,
+          height: 100,
+          borderWidth: 10,
+          borderColor: "green",
+          borderRadius: 50,
+        }}
+      ></View>
     </View>
   );
 }
