@@ -1,4 +1,4 @@
-import { View, StyleSheet } from "react-native";
+import { View } from "react-native";
 
 import AppButton from "./app/components/AppButton";
 import WelcomeScreen from "./app/screen/WelcomeScreen";
