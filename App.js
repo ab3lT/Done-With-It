@@ -6,9 +6,9 @@ import Card from "./app/components/Card";
 
 export default function App() {
   return (
-    <View style={{ backgroundColor: "#f8f4f4", padding: 20, paddingTop: 100 }}>
+    <View style={{ padding: 20, paddingTop: 100 }}>
       <Card
-        title="Smart Watch"
+        title="Smart Watch for sale"
         subTitle="$100"
         image={require("./app/assets/smart_watch.jpg")}
       />
