@@ -9,16 +9,7 @@ import MessagesScreen from "./app/screen/MessagesScreen";
 import Screen from "./app/components/Screen";
 import Icon from "./app/components/Icon";
 import ListItem from "./app/components/ListItem";
+import AccountScreen from "./app/screen/AccountScreen";
 export default function App() {
-  return (
-    <Screen>
-      <ListItem title="My TItle" ImageComponent={<Icon name="email" />} />
-    </Screen>
-  );
+  return <AccountScreen />;
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 40,
-  },
-});
