@@ -4,12 +4,8 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 
 import Screen from "../components/Screen";
-import AppTextInput from "../components/AppTextInput";
-import AppButton from "../components/AppButton";
-import AppText from "../components/AppText";
-import ErrorMessage from "../components/ErrorMessage";
-import AppFormField from "../components/AppFormField";
-import SubmitButton from "../components/SubmitButton";
+
+import { AppFormField, SubmitButton, AppForm } from "../components/forms";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -21,37 +17,33 @@ export default function LoginScreen() {
     <Screen style={styles.container}>
       <Image style={styles.logo} source={require("../assets/aripod.jpg")} />
 
-      <Formik
+      <AppForm
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        {() => (
-          <>
-            <AppFormField
-              autocapitalize="none"
-              autoCorrect={false}
-              icon="email"
-              name="email"
-              keyBordType="email-address"
-              placeholder="Email"
-              textContentType="emailAddress" // only works on ios it felss email form the key chain
-            />
+        <AppFormField
+          autocapitalize="none"
+          autoCorrect={false}
+          icon="email"
+          name="email"
+          keyBordType="email-address"
+          placeholder="Email"
+          textContentType="emailAddress" // only works on ios it felss email form the key chain
+        />
 
-            <AppFormField
-              autocapitalize="none"
-              autoCorrect={false}
-              icon="lock"
-              name="password"
-              placeholder="Password"
-              secureTextEntry
-              textContentType="password"
-            />
+        <AppFormField
+          autocapitalize="none"
+          autoCorrect={false}
+          icon="lock"
+          name="password"
+          placeholder="Password"
+          secureTextEntry
+          textContentType="password"
+        />
 
-            <SubmitButton title="Login" />
-          </>
-        )}
-      </Formik>
+        <SubmitButton title="Login" />
+      </AppForm>
     </Screen>
   );
 }

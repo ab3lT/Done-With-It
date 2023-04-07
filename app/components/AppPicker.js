@@ -14,7 +14,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import defaultStyles from "../config/styles";
 import AppText from "./AppText";
 import PikerItem from "./PikerItem";
-
+import Screen from "./Screen";
 export default function AppPicker({
   icon,
   items,
@@ -22,45 +22,50 @@ export default function AppPicker({
   placeholder,
   selectedItem,
 }) {
-  const [modalVisible, setmodalVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <>
-      <TouchableWithoutFeedback onPress={() => setmodalVisible(true)}>
+      <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
         <View style={styles.container}>
           {icon && (
             <MaterialCommunityIcons
               name={icon}
               size={20}
-              color={defaultStyles.medium}
+              color={defaultStyles.colors.medium}
               style={styles.icon}
             />
           )}
-          <AppText style={styles.text}>
-            {selectedItem ? selectedItem.lable : placeholder}
-          </AppText>
+          {selectedItem ? (
+            <AppText style={styles.text}>{selectedItem.label}</AppText>
+          ) : (
+            <AppText style={styles.placeholder}>{placeholder}</AppText>
+          )}
+
           <MaterialCommunityIcons
             name="chevron-down"
             size={20}
-            color={defaultStyles.medium}
+            color={defaultStyles.colors.medium}
           />
         </View>
       </TouchableWithoutFeedback>
       <Modal visible={modalVisible} animationType="slide">
-        <Button title="Close" onPress={() => setmodalVisible(false)} />
-        <FlatList
-          data={items}
-          keyExtractor={(item) => item.value.toString()}
-          renderItem={({ item }) => (
-            <PikerItem
-              lable={item.lable}
-              onPress={() => {
-                setmodalVisible(false);
-                onSelectItem(item);
-              }}
-            />
-          )}
-        />
+        <Screen>
+          <Button title="Close" onPress={() => setModalVisible(false)} />
+          <FlatList
+            data={items}
+            keyExtractor={(item) => item.value.toString()}
+            renderItem={({ item }) => (
+              <PikerItem
+                label={item.label}
+                onPress={() => {
+                  setModalVisible(false);
+                  onSelectItem(item);
+                }}
+              />
+            )}
+          />
+        </Screen>
       </Modal>
     </>
   );
