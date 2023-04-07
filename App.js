@@ -1,4 +1,11 @@
-import { SafeAreaView, View, StyleSheet, Text, TextInput } from "react-native";
+import {
+  SafeAreaView,
+  View,
+  StyleSheet,
+  Text,
+  TextInput,
+  Switch,
+} from "react-native";
 import React, { useState } from "react";
 import AppButton from "./app/components/AppButton";
 import WelcomeScreen from "./app/screen/WelcomeScreen";
@@ -14,10 +21,10 @@ import ListingScreen from "./app/screen/ListingScreen";
 import AppTextInput from "./app/components/AppTextInput";
 
 export default function App() {
-  const [firstName, setFirstName] = useState("");
+  const [isNew, setIsNew] = useState(false);
   return (
     <Screen>
-      <AppTextInput placeholder="UserName" icon="email" />
+      <Switch value={isNew} onValueChange={(newValue) => setIsNew(newValue)} />
     </Screen>
   );
 }
