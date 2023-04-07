@@ -7,6 +7,9 @@ import Screen from "../components/Screen";
 import AppTextInput from "../components/AppTextInput";
 import AppButton from "../components/AppButton";
 import AppText from "../components/AppText";
+import ErrorMessage from "../components/ErrorMessage";
+import AppFormField from "../components/AppFormField";
+import SubmitButton from "../components/SubmitButton";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -23,30 +26,29 @@ export default function LoginScreen() {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        {({ handleChange, handleSubmit, errors }) => (
+        {() => (
           <>
-            <AppTextInput
+            <AppFormField
               autocapitalize="none"
               autoCorrect={false}
               icon="email"
+              name="email"
               keyBordType="email-address"
-              onChangeText={handleChange("email")}
               placeholder="Email"
               textContentType="emailAddress" // only works on ios it felss email form the key chain
             />
-            <AppText style={{ color: "red" }}>{errors.email}</AppText>
-            <AppTextInput
+
+            <AppFormField
               autocapitalize="none"
               autoCorrect={false}
               icon="lock"
-              onChangeText={handleChange("password")}
+              name="password"
               placeholder="Password"
               secureTextEntry
               textContentType="password"
             />
-            <AppText style={{ color: "red" }}>{errors.password}</AppText>
 
-            <AppButton title="Login" onPress={handleSubmit} />
+            <SubmitButton title="Login" />
           </>
         )}
       </Formik>
