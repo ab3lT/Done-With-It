@@ -19,9 +19,10 @@ const styles = StyleSheet.create({
     backgroudColor: colors.white,
     marginButton: 20,
     overflow: "hidden",
+    paddingBottom: 20,
   },
   detailsContainer: {
-    padding: 20,
+    padding: 10,
   },
   image: {
     width: "100%",

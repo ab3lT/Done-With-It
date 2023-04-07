@@ -26,7 +26,7 @@ const listings = [
 
 export default function ListingScreen() {
   return (
-    <Screen style={styles.Screen}>
+    <Screen style={styles.screen}>
       <FlatList
         data={listings}
         keyExtractor={(listings) => listings.id.toString()}
@@ -43,7 +43,7 @@ export default function ListingScreen() {
 }
 
 const styles = StyleSheet.create({
-  Screen: {
+  screen: {
     padding: 10,
     backgroundColor: colors.light,
   },
