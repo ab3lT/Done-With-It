@@ -8,7 +8,9 @@ import Screen from "../components/Screen";
 import { AppFormField, SubmitButton, AppForm } from "../components/forms";
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string().required().email().label("Email"),
+  email:
+    Yup.string().required().email().label("Email") ||
+    Yup.string().required().min(4).label("UserName"),
   password: Yup.string().required().min(4).label("Password"),
 });
 
